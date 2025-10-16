@@ -45,7 +45,7 @@ let products = [
         price: 2499,
         category: 'electronics',
         description: 'Premium wireless headphones with noise cancellation and 30-hour battery life.',
-        image: '/images/download.jpeg',
+        image: '/images/Wireless Bluetooth Headphones.jpeg',
         stock: 50,
         createdAt: new Date().toISOString()
     },
@@ -55,7 +55,7 @@ let products = [
         price: 3999,
         category: 'electronics',
         description: 'Advanced smartwatch with health monitoring, GPS, and water resistance.',
-        image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
+        image: '/images/smart watch.jpeg',
         stock: 30,
         createdAt: new Date().toISOString()
     },
@@ -65,7 +65,7 @@ let products = [
         price: 3199,
         category: 'sports',
         description: 'Professional running shoes with advanced cushioning and breathable material.',
-        image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop',
+        image: '/images/Running Shoes.jpeg',
         stock: 75,
         createdAt: new Date().toISOString()
     },
@@ -75,7 +75,7 @@ let products = [
         price: 1499,
         category: 'travel',
         description: 'Durable travel backpack with multiple compartments and laptop sleeve.',
-        image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop',
+        image: '/images/Travel Backpack.jpeg',
         stock: 25,
         createdAt: new Date().toISOString()
     },
@@ -85,7 +85,7 @@ let products = [
         price: 899,
         category: 'electronics',
         description: 'Fast wireless charging pad compatible with all Qi-enabled devices.',
-        image: 'https://images.unsplash.com/photo-1586953135761-b6eee5aa7aca?w=400&h=300&fit=crop',
+        image: '/images/Wireless Charger.jpg',
         stock: 100,
         createdAt: new Date().toISOString()
     },
@@ -95,7 +95,7 @@ let products = [
         price: 4999,
         category: 'home',
         description: 'Premium coffee maker with built-in grinder and programmable settings.',
-        image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=300&fit=crop',
+        image: '/images/Coffee Maker Deluxe.jpeg',
         stock: 15,
         createdAt: new Date().toISOString()
     }
