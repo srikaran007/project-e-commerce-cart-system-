@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Cart System - Phase 4</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-shopping-cart"></i> E-Commerce Cart System</h1>
+                <div class="header-actions">
+                    <button id="clearCart" class="btn btn-ghost">
+                        <i class="fas fa-trash"></i> Clear Cart
+                    </button>
+                    <div class="cart-indicator">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span id="cartBadge" class="cart-badge">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-page="products">
+                <i class="fas fa-box"></i> Products
+            </button>
+            <button class="nav-tab" data-page="cart">
+                <i class="fas fa-shopping-cart"></i> Cart
+            </button>
+            <button class="nav-tab" data-page="checkout">
+                <i class="fas fa-credit-card"></i> Checkout
+            </button>
+            <button class="nav-tab" data-page="admin">
+                <i class="fas fa-cog"></i> Admin
+            </button>
+        </nav>
+
+        <main>
+            <section id="products-page" class="page active">
+                <div class="card">
+                    <div class="section-header">
+                        <h2><i class="fas fa-store"></i> Our Products</h2>
+                        <div class="search-bar">
+                            <input type="text" id="searchProducts" placeholder="Search products...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div id="products" class="products-grid"></div>
+                </div>
+            </section>
+
+            
+            <section id="cart-page" class="page">
+                <div class="card">
+                    <div class="section-header">
+                        <h2><i class="fas fa-shopping-cart"></i> Shopping Cart</h2>
+                        <span id="cartItemCount" class="item-count">0 items</span>
+                    </div>
+                    <div id="cartList" class="cart-list"></div>
+
+                    
+                    <div class="promo-section">
+                        <div class="promo-input">
+                            <input type="text" id="promoCode" placeholder="Enter promo code (SAVE10, FREESHIP)">
+                            <button id="applyPromo" class="btn btn-primary">
+                                <i class="fas fa-tag"></i> Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    
+                    <div class="cart-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <strong id="subtotal">₹0.00</strong>
+                        </div>
+                        <div class="total-row discount-row" id="discountRow" style="display: none;">
+                            <span>Discount:</span>
+                            <strong id="discount" class="discount-amount">-₹0.00</strong>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax (5%):</span>
+                            <strong id="tax">₹0.00</strong>
+                        </div>
+                        <div class="total-row">
+                            <span>Shipping:</span>
+                            <strong id="shipping">₹50.00</strong>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Grand Total:</span>
+                            <strong id="grandTotal">₹0.00</strong>
+                        </div>
+                    </div>
+
+                    <button id="proceedCheckout" class="btn btn-primary btn-large">
+                        <i class="fas fa-arrow-right"></i> Proceed to Checkout
+                    </button>
+                </div>
+            </section>
+
+            
+            <section id="checkout-page" class="page">
+                <div class="card">
+                    <div class="section-header">
+                        <h2><i class="fas fa-credit-card"></i> Checkout</h2>
+                        <button id="backToCart" class="btn btn-ghost">
+                            <i class="fas fa-arrow-left"></i> Back to Cart
+                        </button>
+                    </div>
+
+                    <form id="checkoutForm" class="checkout-form">
+                        <div class="form-section">
+                            <h3>Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Shipping Address</h3>
+                            <div class="form-group">
+                                <label for="address">Street Address *</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State *</label>
+                                    <input type="text" id="state" name="state" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pincode">Pincode *</label>
+                                    <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button type="submit" class="btn btn-success btn-large">
+                                <i class="fas fa-check-circle"></i> Place Order
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            
+            <section id="admin-page" class="page">
+                <div class="card">
+                    <div class="section-header">
+                        <h2><i class="fas fa-cog"></i> Admin Panel</h2>
+                    </div>
+
+                    <div class="admin-section">
+                        <h3>Add New Product</h3>
+                        <form id="addProductForm" class="admin-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="productName">Product Name *</label>
+                                    <input type="text" id="productName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productPrice">Price (₹) *</label>
+                                    <input type="number" id="productPrice" min="1" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="productCategory">Category</label>
+                                <select id="productCategory">
+                                    <option value="electronics">Electronics</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="books">Books</option>
+                                    <option value="home">Home & Garden</option>
+                                    <option value="sports">Sports</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="productDescription">Description</label>
+                                <textarea id="productDescription" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="productImage">Product Image</label>
+                                <input type="file" id="productImage" accept="image/*">
+                                <div id="imagePreview" class="image-preview"></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Add Product
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
